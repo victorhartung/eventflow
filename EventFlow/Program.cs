@@ -1,5 +1,9 @@
 using EventFlow.Data;
+using EventFlow.Services;
+using EventFlow.Services.Interfaces;
+using EventFlow.Services.Refit;
 using Microsoft.EntityFrameworkCore;
+using Refit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,12 @@ builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("EventFlowConnection");
 builder.Services.AddDbContext<EventFlowContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddRefitClient<IViaCepRefit>().ConfigureHttpClient(c =>
+{
+    c.BaseAddress = new Uri("https://viacep.com.br");
+});
+
+builder.Services.AddScoped<IViaCepIntegration, ViaCepIntegration>();
 
 var app = builder.Build();
 
