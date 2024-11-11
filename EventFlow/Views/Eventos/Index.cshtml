@@ -9,7 +9,7 @@
 </div>
 
 <div class="table-container">
-    <a asp-action="Create" class="btn-create">Criar Novo Evento</a>
+    <a asp-action="Create" class="btn-create mb-4">Criar Novo Evento</a>
     <table class="styled-table">
         <thead>
             <tr>
@@ -30,6 +30,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Organizador)
+                </th>
+                <th>
+                    Ações
                 </th>
             </tr>
         </thead>

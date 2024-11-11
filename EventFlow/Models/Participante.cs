@@ -7,6 +7,7 @@ namespace EventFlow.Models
     {
         [Required(ErrorMessage = "O campo Data de Nascimento é obrigatório.")]
         [Display(Name = "Data de Nascimento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [DataNascimento]
         public DateOnly DataNascimento { get; set; }
 

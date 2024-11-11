@@ -20,7 +20,6 @@ namespace EventFlow.Models
         [Range(0, double.MaxValue, ErrorMessage = "O preço deve ser um valor positivo.")]
         [Column(TypeName = "decimal(18,2)")]
         [Display(Name = "Preço")]
-        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Preco { get; set; }
 
         [Required(ErrorMessage = "O campo Previsão Climática é obrigatório.")]
