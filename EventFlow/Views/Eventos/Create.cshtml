@@ -1,119 +1,107 @@
 ﻿@model EventFlow.Models.Evento
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar Evento";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Evento</h4>
-<hr />
-<div class="row">
-    <div class="col-md-12">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="Nome" class="control-label"></label>
-                        <input asp-for="Nome" class="form-control" />
-                        <span asp-validation-for="Nome" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Data" class="control-label"></label>
-                        <input asp-for="Data" class="form-control" />
-                        <span asp-validation-for="Data" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="QuantidadeParticipantes" class="control-label"></label>
-                        <input asp-for="QuantidadeParticipantes" class="form-control" />
-                        <span asp-validation-for="QuantidadeParticipantes" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Preco" class="control-label"></label>
-                        <input asp-for="Preco" class="form-control" />
-                        <span asp-validation-for="Preco" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="PrevisaoClimatica" class="control-label"></label>
-                        <input asp-for="PrevisaoClimatica" class="form-control" />
-                        <span asp-validation-for="PrevisaoClimatica" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="OrganizadorId" class="control-label"></label>
-                        <select asp-for="OrganizadorId" class ="form-control" asp-items="ViewBag.OrganizadorId"></select>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <h4>Endereço</h4>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.CEP" class="control-label"></label>
-                        <input asp-for="Endereco.CEP" class="form-control" />
-                        <span asp-validation-for="Endereco.CEP" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.Logradouro" class="control-label"></label>
-                        <input asp-for="Endereco.Logradouro" class="form-control" />
-                        <span asp-validation-for="Endereco.Logradouro" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.Numero" class="control-label"></label>
-                        <input asp-for="Endereco.Numero" class="form-control" />
-                        <span asp-validation-for="Endereco.Numero" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.Complemento" class="control-label"></label>
-                        <input asp-for="Endereco.Complemento" class="form-control" />
-                        <span asp-validation-for="Endereco.Complemento" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.Bairro" class="control-label"></label>
-                        <input asp-for="Endereco.Bairro" class="form-control" />
-                        <span asp-validation-for="Endereco.Bairro" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.Localidade" class="control-label"></label>
-                        <input asp-for="Endereco.Localidade" class="form-control" />
-                        <span asp-validation-for="Endereco.Localidade" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Endereco.UF" class="control-label"></label>
-                        <input asp-for="Endereco.UF" class="form-control" />
-                        <span asp-validation-for="Endereco.UF" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+<div class="page-header">
+    <h1 class="page-title">Criar Novo Evento</h1>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="form-container">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Detalhes do Evento</h4>
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label">Nome</label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Data" class="control-label">Data</label>
+                    <input asp-for="Data" type="datetime-local" class="form-control" />
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuantidadeParticipantes" class="control-label">Quantidade de Participantes</label>
+                    <input asp-for="QuantidadeParticipantes" class="form-control" />
+                    <span asp-validation-for="QuantidadeParticipantes" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Preco" class="control-label">Preço</label>
+                    <input asp-for="Preco" type="number" step="0.01" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrevisaoClimatica" class="control-label">Previsão Climática</label>
+                    <input asp-for="PrevisaoClimatica" class="form-control" />
+                    <span asp-validation-for="PrevisaoClimatica" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OrganizadorId" class="control-label">Organizador</label>
+                    <select asp-for="OrganizadorId" class="form-control" asp-items="ViewBag.OrganizadorId"></select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Endereço</h4>
+                <div class="form-group">
+                    <label asp-for="Endereco.CEP" class="control-label">CEP</label>
+                    <input asp-for="Endereco.CEP" class="form-control" />
+                    <span asp-validation-for="Endereco.CEP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Logradouro" class="control-label">Logradouro</label>
+                    <input asp-for="Endereco.Logradouro" class="form-control" />
+                    <span asp-validation-for="Endereco.Logradouro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Numero" class="control-label">Número</label>
+                    <input asp-for="Endereco.Numero" class="form-control" />
+                    <span asp-validation-for="Endereco.Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Complemento" class="control-label">Complemento</label>
+                    <input asp-for="Endereco.Complemento" class="form-control" />
+                    <span asp-validation-for="Endereco.Complemento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Bairro" class="control-label">Bairro</label>
+                    <input asp-for="Endereco.Bairro" class="form-control" />
+                    <span asp-validation-for="Endereco.Bairro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.Localidade" class="control-label">Localidade</label>
+                    <input asp-for="Endereco.Localidade" class="form-control" />
+                    <span asp-validation-for="Endereco.Localidade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Endereco.UF" class="control-label">UF</label>
+                    <input asp-for="Endereco.UF" class="form-control" />
+                    <span asp-validation-for="Endereco.UF" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvar Evento</button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             // Quando o campo CEP perder o foco
             $('#Endereco_CEP').blur(function () {
                 var cep = $(this).val().replace('-', ''); // Remover o hífen do CEP
-                var regex = /^\d{8}$/ // Validação do CEP usando regex
-                if (regex.test(cep)) {  // Verifica se o CEP tem 8 dígitos
+                if (/^\d{8}$/.test(cep)) {  // Verifica se o CEP tem 8 dígitos
                     $.ajax({
                         url: `https://viacep.com.br/ws/${cep}/json/`,
                         method: 'GET',

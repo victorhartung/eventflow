@@ -1,8 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Bem-vindo";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div id="eventflow-container">
+        <header>
+            <h1 class="project-title">EventFlow</h1>
+            <h2 class="project-subtitle">Programação Orientada a Objetos II</h2>
+            <h3 class="project-teacher">Professor Rosenclever</h3>
+        </header>
+
+        <section>
+            <p class="project-description">
+                Bem-vindo ao <strong>EventFlow</strong>, um sistema que simplifica a criação e gestão de eventos, integrando soluções como a consulta de endereços via <strong>API ViaCep</strong>.
+            </p>
+
+        </section>
+
+        <section>
+            <h4 class="students-title">Alunos Participantes:</h4>
+            <ul>
+                <li class="student-name">Pedro Amando Gandos Citelli</li>
+                <li class="student-name">Pedro Lucas Reis de Oliveira Sousa</li>
+                <li class="student-name">Pablo Irineu de Souza</li>
+                <li class="student-name">Paulo Ryan Garani Salgado</li>
+                <li class="student-name">Victor Hugo Varelo Hartung</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
