@@ -10,7 +10,7 @@
 
  <h2>Pré requisitos:</h2>
 
- Para que funcione corretamente é necessario a instalação de todas as aplicações abaixo:
+ Para que o sistema funcione corretamente, é necessário instalar as aplicações listadas abaixo:
  
 [![Git](https://img.shields.io/badge/Git-F05032.svg?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com)
 [![.NET 8.0](https://img.shields.io/badge/.NET_8.0-512BD4.svg?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/pt-br/download/dotnet/8.0)
@@ -21,9 +21,9 @@
 
 ## :pushpin: Clonar Repositório
 
-Para clonar e execultar o repositório é necessário o Git intalado em seu computador ou através do proprio Visual Studio.
+Para clonar e executar o repositório, é necessário ter o Git instalado em seu computador ou utilizar o próprio Visual Studio.
 
-Para clonar no Git siga os passos em sua linha de comando:
+Para clonar via Git, siga os passos na linha de comando:
 
 ```bash
 # Clonar esse repositório
@@ -33,17 +33,16 @@ git clone https://github.com/victorhartung/eventflow.git
 cd eventflow
 ```
 
-Para clonar pelo Visual Studio selecione a opção "clonar um repositório":
+Para clonar via Visual Studio, selecione a opção "clonar um repositório", insira o link do repositório e escolha o caminho para o projeto.
 
-![Screenshot_1](https://github.com/user-attachments/assets/74732fd9-28cd-4572-b110-b09efbdf1c2b)
-
-Em seguida insira o link do repositório e em seguida o caminho escolhido para o projeto:
-
-![Screenshot_2](https://github.com/user-attachments/assets/33cf7f78-f767-4b35-9fd2-77a123e2b35c)
+<p align="center">
+<td><img src="https://github.com/user-attachments/assets/74732fd9-28cd-4572-b110-b09efbdf1c2b" width="700px"/></td>
+<td><img src="https://github.com/user-attachments/assets/33cf7f78-f767-4b35-9fd2-77a123e2b35c" width="700px"/></td>
+</p>
 
 ## :pushpin: Visual Studio
 
-Ao clonar o repositório, faça as devidas configurações para um bom funcionamento do sistema. 
+Após clonar o repositório, faça as configurações necessárias para o bom funcionamento do sistema.
 
 ### ● Criação do banco de dados:
 
