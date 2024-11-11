@@ -79,7 +79,7 @@ Para criar o banco de dados:
 
 Execute o projeto selecionando o `https` ou a tecla `F5`
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/04d8ea74-7692-4a1e-8d12-5f16089e7704" width="620px"/>
+  <img src="https://github.com/user-attachments/assets/04d8ea74-7692-4a1e-8d12-5f16089e7704" width="450px"/>
 </p>
 
 <h2></h2>
