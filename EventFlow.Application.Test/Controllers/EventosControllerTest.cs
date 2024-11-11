@@ -20,13 +20,36 @@ namespace EventFlow.Application.Tests.Controllers
 
         private readonly EventosController _controller;
         private readonly EventFlowContext _context;
+        private readonly Endereco endereco;
+        private readonly Endereco endereco2;
 
         public EventosControllerTest() 
         {
 
             _context = ContextGenerator.Generate(); 
             _controller = new EventosController(_context);
-        
+            endereco = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 1,
+                Numero = 1109
+            };
+            endereco2 = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 2,
+                Numero = 1109
+            };
         }
 
 
@@ -41,7 +64,7 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 1,
                 Nome = "Evento Teste",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
@@ -74,7 +97,7 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 1,
                 Nome = "Evento 1",
-                Local = "Local 1",
+                Endereco = this.endereco,
                 Preco = 50,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
@@ -87,7 +110,7 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 2,
                 Nome = "Evento 2",
-                Local = "Local 2",
+                Endereco = this.endereco2,
                 Preco = 70,
                 PrevisaoClimatica = "Chuvoso",
                 Data = DateTime.Now.AddDays(1),
@@ -112,11 +135,24 @@ namespace EventFlow.Application.Tests.Controllers
         {
 
             _context.Database.EnsureDeleted();
+
+            var endereco = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 1,
+                Numero = 1109
+            };
+
             var evento = new Evento
             {
                 Id = 1,
                 Nome = "Novo Evento",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
@@ -150,8 +186,8 @@ namespace EventFlow.Application.Tests.Controllers
             var evento = new Evento
             {
                 Id = 2,
-                Nome = "", 
-                Local = "Local Teste",
+                Nome = "",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
@@ -194,7 +230,7 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 1,
                 Nome = "Evento para deletar",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,

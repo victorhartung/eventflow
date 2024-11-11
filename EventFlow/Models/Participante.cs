@@ -1,13 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EventFlow.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace EventFlow.Models
 {
     public class Participante : Pessoa
     {
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Data de Nascimento")] 
-        public DateTime DataNascimento { get; set; }
+        [Required(ErrorMessage = "O campo Data de Nascimento é obrigatório.")]
+        [Display(Name = "Data de Nascimento")]
+        [DataNascimento]
+        public DateOnly DataNascimento { get; set; }
 
         public ICollection<Inscricao> Inscricoes { get; set; } = new List<Inscricao>();
     }

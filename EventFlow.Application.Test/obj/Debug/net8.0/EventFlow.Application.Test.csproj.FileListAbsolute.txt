@@ -411,9 +411,4 @@ C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Applicat
 C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\obj\Debug\net8.0\ref\EventFlow.Application.Test.dll
 C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\obj\Debug\net8.0\EventFlow.Application.Test.sourcelink.json
 C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Castle.Core.dll
-C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
-C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
-C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
 C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Moq.dll
-C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Refit.dll
-C:\Users\victo\OneDrive\Área de Trabalho\eventflow\EventFlow\EventFlow.Application.Test\bin\Debug\net8.0\Refit.HttpClientFactory.dll

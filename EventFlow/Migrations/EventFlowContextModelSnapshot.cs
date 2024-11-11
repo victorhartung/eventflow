@@ -22,6 +22,50 @@ namespace EventFlow.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EventFlow.Models.Endereco", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CEP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Complemento")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Localidade")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Logradouro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UF")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enderecos");
+                });
+
             modelBuilder.Entity("EventFlow.Models.Evento", b =>
                 {
                     b.Property<int>("Id")
@@ -33,10 +77,8 @@ namespace EventFlow.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Local")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<int>("EnderecoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -54,7 +96,13 @@ namespace EventFlow.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("QuantidadeParticipantes")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("EnderecoId")
+                        .IsUnique();
 
                     b.HasIndex("OrganizadorId");
 
@@ -127,8 +175,8 @@ namespace EventFlow.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataNascimento")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -150,11 +198,19 @@ namespace EventFlow.Migrations
 
             modelBuilder.Entity("EventFlow.Models.Evento", b =>
                 {
+                    b.HasOne("EventFlow.Models.Endereco", "Endereco")
+                        .WithOne()
+                        .HasForeignKey("EventFlow.Models.Evento", "EnderecoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EventFlow.Models.Organizador", "Organizador")
                         .WithMany("Eventos")
                         .HasForeignKey("OrganizadorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Endereco");
 
                     b.Navigation("Organizador");
                 });

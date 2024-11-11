@@ -28,7 +28,7 @@ namespace EventFlow.Application.Tests.Controllers
         public async Task Index_ReturnsViewResult_WithListOfParticipantes()
         {
             
-            _context.Participantes.Add(new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateTime.Now });
+            _context.Participantes.Add(new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateOnly.MaxValue });
             await _context.SaveChangesAsync();
 
             var result = await _controller.Index();
@@ -47,7 +47,7 @@ namespace EventFlow.Application.Tests.Controllers
                 Nome = "Participante Teste",
                 Email = "teste@teste.com",
                 Telefone = "123456789",
-                DataNascimento = DateTime.Now
+                DataNascimento = DateOnly.MaxValue
             };
         
             var result = await _controller.Create(participante);
@@ -69,7 +69,7 @@ namespace EventFlow.Application.Tests.Controllers
         public async Task Edit_ReturnsViewResult_WhenParticipanteExists()
         {
          
-            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateTime.Now };
+            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateOnly.MaxValue };
             _context.Participantes.Add(participante);
             await _context.SaveChangesAsync();
 
@@ -94,7 +94,7 @@ namespace EventFlow.Application.Tests.Controllers
         public async Task DeleteConfirmed_RemovesParticipante_WhenParticipanteExists()
         {
       
-            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateTime.Now };
+            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateOnly.MaxValue };
             _context.Participantes.Add(participante);
             await _context.SaveChangesAsync();
 
@@ -119,7 +119,7 @@ namespace EventFlow.Application.Tests.Controllers
         public async Task Details_ReturnsViewResult_WhenParticipanteExists()
         {
 
-            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateTime.Now };
+            var participante = new Participante { Id = 1, Nome = "Participante Teste", Email = "teste@teste.com", Telefone = "123456789", DataNascimento = DateOnly.MaxValue };
             _context.Participantes.Add(participante);
             await _context.SaveChangesAsync();
 

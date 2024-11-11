@@ -1,9 +1,7 @@
 using EventFlow.Data;
-using EventFlow.Services;
-using EventFlow.Services.Interfaces;
-using EventFlow.Services.Refit;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Refit;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +10,6 @@ builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("EventFlowConnection");
 builder.Services.AddDbContext<EventFlowContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddRefitClient<IViaCepRefit>().ConfigureHttpClient(c =>
-{
-    c.BaseAddress = new Uri("https://viacep.com.br");
-});
-
-builder.Services.AddScoped<IViaCepIntegration, ViaCepIntegration>();
 
 var app = builder.Build();
 
@@ -28,6 +20,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseRequestLocalization(getLocalizationOption());
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -41,3 +34,15 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+static RequestLocalizationOptions getLocalizationOption()
+{
+    var defaultCulture = new CultureInfo("pt-BR");
+    var localizationOptions = new RequestLocalizationOptions
+    {
+        DefaultRequestCulture = new RequestCulture(defaultCulture),
+        SupportedCultures = new List<CultureInfo> { defaultCulture },
+        SupportedUICultures = new List<CultureInfo> { defaultCulture }
+    };
+    return localizationOptions;
+}

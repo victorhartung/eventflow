@@ -18,10 +18,25 @@ namespace EventFlow.Application.Tests.Controllers
 
         private readonly InscricoesController _controller;
         private readonly EventFlowContext _context;
+        private readonly Endereco endereco;
+
         public InscricoesControllerTest()
         {
             _context = ContextGenerator.Generate();
             _controller = new InscricoesController(_context);
+
+            endereco = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 1,
+                Numero = 1109
+            };
+
 
         }
         
@@ -32,7 +47,7 @@ namespace EventFlow.Application.Tests.Controllers
             var evento = new Evento {
                 Id = 1,
                 Nome = "Evento Teste",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
@@ -79,10 +94,10 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 1,
                 Nome = "Evento Teste",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
-                Data = DateTime.Now,
+                Data = DateTime.Now.AddDays(1),
                 OrganizadorId = 1
             };
 
@@ -142,7 +157,7 @@ namespace EventFlow.Application.Tests.Controllers
             {
                 Id = 1,
                 Nome = "Evento Teste",
-                Local = "Local Teste",
+                Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
                 Data = DateTime.Now,
