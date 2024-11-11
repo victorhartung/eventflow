@@ -20,7 +20,7 @@
                     <td>@inscricao.Evento.Nome</td>
                     <td>@inscricao.DataInscricao.ToString("dd/MM/yyyy HH:mm")</td>
                     <td>@inscricao.StatusPagamento</td>
-                    <td>@inscricao.MetodoPagamento</td>
+                    <td>@Html.DisplayFor(modelItem => inscricao.MetodoPagamento)</td>
                 </tr>
             }
         </tbody>
