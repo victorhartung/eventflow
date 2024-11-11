@@ -1,7 +1,7 @@
 <span id="top"></span>
 <h1 align="center">
   <img src="https://github.com/user-attachments/assets/ac0d04d7-bf31-4920-b13e-9effb6eb9a55" width="150" />
-  <br> EvetFlow
+  <br> EventFlow
 </h1>
 
 <div align="center">	
