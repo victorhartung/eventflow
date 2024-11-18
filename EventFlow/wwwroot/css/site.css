@@ -282,6 +282,14 @@ input, select {
         background-color: #004099;
     }
 
+.required {
+    color: red;
+}
+
+.form-control-readonly {
+    background-color: #c0c0c0;
+}
+
 /* ---------- Rodapé ---------- */
 footer {
     background-color: #0056b3;

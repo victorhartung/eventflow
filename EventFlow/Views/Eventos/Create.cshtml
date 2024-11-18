@@ -16,49 +16,49 @@
             <div class="col-md-6">
                 <h4>Detalhes do Evento</h4>
                 <div class="form-group">
-                    <label asp-for="Nome" class="control-label">Nome</label>
+                    <label asp-for="Nome" class="control-label">Nome <span class="required">*</span></label>
                     <input asp-for="Nome" class="form-control" />
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Data" class="control-label">Data</label>
+                    <label asp-for="Data" class="control-label">Data <span class="required">*</span></label>
                     <input asp-for="Data" type="datetime-local" class="form-control" />
                     <span asp-validation-for="Data" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="QuantidadeParticipantes" class="control-label">Quantidade de Participantes</label>
+                    <label asp-for="QuantidadeParticipantes" class="control-label">Quantidade de Participantes <span class="required">*</span></label>
                     <input asp-for="QuantidadeParticipantes" class="form-control" />
                     <span asp-validation-for="QuantidadeParticipantes" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Preco" class="control-label">Preço</label>
+                    <label asp-for="Preco" class="control-label">Preço <span class="required">*</span></label>
                     <input asp-for="Preco" type="number" step="0.01" class="form-control" />
                     <span asp-validation-for="Preco" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="PrevisaoClimatica" class="control-label">Previsão Climática</label>
+                    <label asp-for="PrevisaoClimatica" class="control-label">Previsão Climática <span class="required">*</span></label>
                     <input asp-for="PrevisaoClimatica" class="form-control" />
                     <span asp-validation-for="PrevisaoClimatica" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="OrganizadorId" class="control-label">Organizador</label>
+                    <label asp-for="OrganizadorId" class="control-label">Organizador <span class="required">*</span></label>
                     <select asp-for="OrganizadorId" class="form-control" asp-items="ViewBag.OrganizadorId"></select>
                 </div>
             </div>
             <div class="col-md-6">
                 <h4>Endereço</h4>
                 <div class="form-group">
-                    <label asp-for="Endereco.CEP" class="control-label">CEP</label>
+                    <label asp-for="Endereco.CEP" class="control-label">CEP <span class="required">*</span></label>
                     <input asp-for="Endereco.CEP" class="form-control" />
                     <span asp-validation-for="Endereco.CEP" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Endereco.Logradouro" class="control-label">Logradouro</label>
-                    <input asp-for="Endereco.Logradouro" class="form-control" readonly />
+                    <label asp-for="Endereco.Logradouro" class="control-label">Logradouro <span class="required">*</span></label>
+                    <input asp-for="Endereco.Logradouro" class="form-control-readonly" readonly />
                     <span asp-validation-for="Endereco.Logradouro" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Endereco.Numero" class="control-label">Número</label>
+                    <label asp-for="Endereco.Numero" class="control-label">Número <span class="required">*</span></label>
                     <input asp-for="Endereco.Numero" class="form-control" />
                     <span asp-validation-for="Endereco.Numero" class="text-danger"></span>
                 </div>
@@ -68,18 +68,18 @@
                     <span asp-validation-for="Endereco.Complemento" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Endereco.Bairro" class="control-label">Bairro</label>
-                    <input asp-for="Endereco.Bairro" class="form-control" readonly />
+                    <label asp-for="Endereco.Bairro" class="control-label">Bairro <span class="required">*</span></label>
+                    <input asp-for="Endereco.Bairro" class="form-control-readonly" readonly />
                     <span asp-validation-for="Endereco.Bairro" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Endereco.Localidade" class="control-label">Localidade</label>
-                    <input asp-for="Endereco.Localidade" class="form-control" readonly />
+                    <label asp-for="Endereco.Localidade" class="control-label">Localidade <span class="required">*</span></label>
+                    <input asp-for="Endereco.Localidade" class="form-control-readonly" readonly />
                     <span asp-validation-for="Endereco.Localidade" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Endereco.UF" class="control-label">UF</label>
-                    <input asp-for="Endereco.UF" class="form-control" readonly />
+                    <label asp-for="Endereco.UF" class="control-label">UF <span class="required">*</span></label>
+                    <input asp-for="Endereco.UF" class="form-control-readonly" readonly />
                     <span asp-validation-for="Endereco.UF" class="text-danger"></span>
                 </div>
             </div>
