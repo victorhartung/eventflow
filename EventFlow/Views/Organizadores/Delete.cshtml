@@ -34,9 +34,35 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete" onsubmit="return confirm('Tem certeza que deseja excluir este item?');">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+        Excluir Organizador
+    </button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à lista</a>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmação de Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        @await Html.PartialAsync("~/Views/Eventos/EventosDoOrganizador.cshtml", Model.Eventos)
+                    </div>
+
+                    <p class="text-danger mt-3">
+                        Excluir este organizador removerá todos os eventos associados. Esta ação não pode ser desfeita.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
