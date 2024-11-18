@@ -1,0 +1,36 @@
+﻿@model EventFlow.Models.Evento
+
+<div class="participantes-section mt-4">
+    <h4>Participantes</h4>
+    <hr />
+    @if (Model.Inscricoes != null && Model.Inscricoes.Any())
+    {
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Data de Inscrição</th>
+                    <th>Status de Pagamento</th>
+                    <th>Método de Pagamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var inscricao in Model.Inscricoes)
+                {
+                    <tr>
+                        <td>@inscricao.Participante?.Nome</td>
+                        <td>@inscricao.Participante?.Email</td>
+                        <td>@inscricao.DataInscricao.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@inscricao.StatusPagamento</td>
+                        <td>@inscricao.MetodoPagamento</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nenhum participante inscrito neste evento.</p>
+    }
+</div>
