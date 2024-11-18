@@ -155,7 +155,7 @@ namespace EventFlow.Application.Tests.Controllers
                 Endereco = this.endereco,
                 Preco = 100,
                 PrevisaoClimatica = "Ensolarado",
-                Data = DateTime.Now,
+                Data = DateTime.Now.AddDays(1),
                 OrganizadorId = 1
             };
 
@@ -164,7 +164,81 @@ namespace EventFlow.Application.Tests.Controllers
             var redirectResult = Assert.IsType<RedirectToActionResult>(result);
 
             Assert.Equal("Index", redirectResult.ActionName);
-        }   
+        }
+
+        [Fact]
+        public async Task Create_ReturnsError_WhenDateIsInvalid()
+        {
+
+            _context.Database.EnsureDeleted();
+
+            var endereco = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 1,
+                Numero = 1109
+            };
+
+            var evento = new Evento
+            {
+                Id = 1,
+                Nome = "Novo Evento",
+                Endereco = this.endereco,
+                Preco = 100,
+                PrevisaoClimatica = "Ensolarado",
+                Data = DateTime.Now.AddDays(-1),
+                OrganizadorId = 1
+            };
+
+            var result = await _controller.Create(evento);
+
+            Assert.False(_controller.ModelState.IsValid, "ModelState deve estar inválido.");
+            Assert.True(_controller.ModelState.ContainsKey(string.Empty), "ModelState deve conter uma chave vazia.");
+            Assert.Equal("Não é possível salvar evento com data passada.",
+                _controller.ModelState[string.Empty].Errors[0].ErrorMessage);
+        }
+
+        [Fact]
+        public async Task Edit_ReturnsError_WhenDateIsInvalid()
+        {
+
+            _context.Database.EnsureDeleted();
+
+            var endereco = new Endereco
+            {
+                Bairro = "Teste",
+                CEP = "27255302",
+                Complemento = "",
+                Localidade = "Volta Redonda",
+                Logradouro = "Rua teste",
+                UF = "RJ",
+                Id = 1,
+                Numero = 1109
+            };
+
+            var evento = new Evento
+            {
+                Id = 1,
+                Nome = "Novo Evento",
+                Endereco = this.endereco,
+                Preco = 100,
+                PrevisaoClimatica = "Ensolarado",
+                Data = DateTime.Now.AddDays(-1),
+                OrganizadorId = 1
+            };
+
+            var result = await _controller.Edit(1, evento);
+
+            Assert.False(_controller.ModelState.IsValid, "ModelState deve estar inválido.");
+            Assert.True(_controller.ModelState.ContainsKey(string.Empty), "ModelState deve conter uma chave vazia.");
+            Assert.Equal("Não é possível salvar evento com data passada.",
+                _controller.ModelState[string.Empty].Errors[0].ErrorMessage);
+        }
 
         //Retorna not found quando evento é null
 
