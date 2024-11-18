@@ -21,25 +21,25 @@ namespace EventFlow.Data
                 .HasOne(e => e.Organizador)
                 .WithMany(o => o.Eventos)
                 .HasForeignKey(e => e.OrganizadorId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Evento>()
                 .HasOne(e => e.Endereco)
                 .WithOne()
                 .HasForeignKey<Evento>(i => i.EnderecoId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Inscricao>()
                 .HasOne(i => i.Evento)
                 .WithMany(e => e.Inscricoes)
                 .HasForeignKey(i => i.EventoId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Inscricao>()
                 .HasOne(i => i.Participante)
                 .WithMany(p => p.Inscricoes)
                 .HasForeignKey(i => i.ParticipanteId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }
