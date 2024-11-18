@@ -62,6 +62,8 @@ namespace EventFlow.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Data,QuantidadeParticipantes,Preco,PrevisaoClimatica,OrganizadorId,Endereco")] Evento evento)
         {
+            VerificarDataValida(evento);
+
             if (ModelState.IsValid)
             {
                 _context.Enderecos.Add(evento.Endereco);
@@ -104,6 +106,8 @@ namespace EventFlow.Controllers
             {
                 return NotFound();
             }
+
+            VerificarDataValida(evento);
 
             if (ModelState.IsValid)
             {
@@ -168,6 +172,14 @@ namespace EventFlow.Controllers
         private bool EventoExists(int id)
         {
             return _context.Eventos.Any(e => e.Id == id);
+        }
+
+        private void VerificarDataValida(Evento evento)
+        {
+            if (evento.Data < DateTime.Now)
+            {
+                ModelState.AddModelError(string.Empty, "Não é possível salvar evento com data passada.");
+            }
         }
     }
 }
