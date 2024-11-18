@@ -300,16 +300,19 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    position: fixed;
 }
 
     footer a {
         color: #ffeb3b;
         text-decoration: none;
         font-weight: bold;
+        position: fixed;
     }
 
         footer a:hover {
             text-decoration: underline;
+            position: fixed;
         }
 
 /* ---------- Responsividade ---------- */
